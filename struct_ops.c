@@ -120,6 +120,7 @@ void find_function(char *opcode, char *opcode_argument,
 
 	instruction_t function_list[] = {
 		{"push", push_to_stack},
+		{"pall", print_stack},
 		{NULL, NULL}
 	};
 
