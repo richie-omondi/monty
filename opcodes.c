@@ -75,3 +75,24 @@ void pop_stack(stack_t **stack, unsigned int line_number)
 	free(temp);
 }
 
+/**
+ * swap_nodes - Swaps the top two elements of the stack.
+ * @stack: Double pointer pointing to the top node of the stack.
+ * @line_number: Integer representing the line number of the opcode.
+ */
+void swap_nodes(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		print_other_errors(8, line_number, "swap");
+	temp = (*stack)->next;
+	(*stack)->next = temp->next;
+	if (temp->next != NULL)
+		temp->next->prev = *stack;
+	temp->next = *stack;
+	(*stack)->prev = temp;
+	temp->prev = NULL;
+	*stack = temp;
+}
+
