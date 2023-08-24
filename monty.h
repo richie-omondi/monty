@@ -31,7 +31,7 @@ extern stack_t *head;
 typedef void (*opcode_func)(stack_t **, unsigned int);
 
 /* Stack operations*/
-stack_t *add_node(int data);
+stack_t *create_node(int data);
 void free_node(void);
 void call_fn(opcode_func func, char *op_code, char *num, int line_no, int data_struct)
 
