@@ -6,7 +6,7 @@
 void push_to_stack(stack_t **new_node, unsigned int line_number)
 {
 	stack_t *temp;
-  (void) unsigned int line_number;
+  	(void) unsigned int line_number;
 
 	if (new_node == NULL || *new_node == NULL)
 		exit(EXIT_FAILURE);
