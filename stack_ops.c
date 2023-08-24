@@ -1,17 +1,17 @@
 /**
- * free_nodes - Frees nodes in the stack.
+ * free_node - Frees a node in the stack.
  */
-void free_nodes(void)
+void free_node(void)
 {
-	stack_t *tmp;
+	stack_t *temp;
 
 	if (head == NULL)
 		return;
 
 	while (head != NULL)
 	{
-		tmp = head;
+		temp = head;
 		head = head->next;
-		free(tmp);
+		free(temp);
 	}
 }
