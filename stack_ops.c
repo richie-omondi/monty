@@ -17,11 +17,11 @@ void free_node(void)
 }
 
 /**
- * create_node - Creates a node.
- * @n: Number to go inside the node.
- * Return: Upon sucess a pointer to the node. Otherwise NULL.
+ * add_node - Adds a node.
+ * @data: Data to go inside the node.
+ * Return: Pointer to the node, otherwise NULL.
  */
-stack_t *create_node(int n)
+stack_t *add_node(int data)
 {
 	stack_t *node;
 
@@ -30,6 +30,6 @@ stack_t *create_node(int n)
 		err(4);
 	node->next = NULL;
 	node->prev = NULL;
-	node->n = n;
+	node->data = data;
 	return (node);
 }
