@@ -45,7 +45,7 @@ stack_t *create_node(int data)
  * @data_structure: If 0, nodes will be added as a stack.
  * If 1, nodes will be added as a queue.
  */
-void call_function(opcode_func func, char *op_code, char *num, int line_number, int data_structure)
+void call_function(opcode_function func, char *op_code, char *num, int line_number, int data_structure)
 {
 	stack_t *node;
 	int multiplier = 1;
