@@ -8,17 +8,14 @@
  * (3) => The file provided contains an invalid instruction.
  * (4) => The program is unable to malloc more memory.
  * (5) => The parameter passed to the instruction "push" is not an int.
- * (6) => The stack is empty for pint.
- * (7) => The stack is empty for pop.
- * (8) => The stack is too short for operation.
- */
+**/
 void hanlde_error(int error_code, ...)
 {
-	va_list ag;
+	va_list args;
 	char *op;
 	int num;
 
-	va_start(ag, error_code);
+	va_start(args, error_code);
 	switch (error_code)
 	{
 		case 1:
@@ -26,22 +23,22 @@ void hanlde_error(int error_code, ...)
 			break;
 		case 2:
 			fprintf(stderr, "Error: Can't open file %s\n",
-				va_arg(ag, char *));
+				va_arg(args, char *));
 			break;
 		case 3:
-			l_num = va_arg(ag, int);
-			op = va_arg(ag, char *);
-			fprintf(stderr, "L%d: unknown instruction %s\n", l_num, op);
+			l_num = va_arg(args, int);
+			op = va_arg(args, char *);
+			fprintf(stderr, "L%d: unknown instruction %s\n", num, op);
 			break;
 		case 4:
 			fprintf(stderr, "Error: malloc failed\n");
 			break;
 		case 5:
-			fprintf(stderr, "L%d: usage: push integer\n", va_arg(ag, int));
+			fprintf(stderr, "L%d: usage: push integer\n", va_arg(args, int));
 			break;
 		default:
 			break;
 	}
-	free_nodes();
+	free_node();
 	exit(EXIT_FAILURE);
 }
