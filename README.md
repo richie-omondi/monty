@@ -20,14 +20,14 @@ It reads Monty bytecode files containing instructions and performs stack operati
 7. [Memory_Management](#memory_management)
 8. [Conclusion](#conclusion)
 
-## Program_Overview
+## Program Overview
 
 The Monty program reads and interprets Monty bytecode files line by line.
 It executes various stack manipulation and arithmetic operations based on the instruction in the bytecode. The program utilizes a doubly linked list to implement the stack, where nodes contain integers.
 - Usage: `monty file`
     - where `file` is the path to the file containing Monty byte code
 
-## Data_Structures
+## Data Structures
 ### `stack_t` Structure
 - Represents a node in the stack.
 - Contains:
@@ -57,7 +57,7 @@ typedef struct instruction_s
 
 ```
 ## Main Function
-`int main(int argc, char **argv)`
+`int main(int ac, char **av)`
 - Entry point of the program.
 - Parses command line arguments to get the input bytecode file path.
 - Calls the `open_file` function to open the file specified by *pathname* then reads the bytecode file for further processing.
@@ -65,7 +65,7 @@ typedef struct instruction_s
 ## Read the file
 `read_input_in_file(FILE *fd)`
 - Reads the content of a file specified by the `pathname`.
-- Reads the file line by line by calling the `getline` function in a loop until the end of file is reached (`getline` returns `-1`) 
+- Reads the file line by line by calling the `getline` function in a loop until the end of the file is reached (`getline` returns `-1`) 
 - processes each line by tokenizing using the `tokenize` function.
 
 ## Tokenization
@@ -88,7 +88,7 @@ typedef struct instruction_s
 - `pop`: Removes the top element from the stack.
 - `swap`: Swaps the two elements of the stack.
 - `add`: Adds the top two elements of the stack.
-- `nop`: No operation (does nothng).
+- `nop`: No operation (does nothing).
 - `sub`: Subtracts the top element from the second element in the stack.
 - `mul`: Multiplies the top two elements of the stack.
 - `mod`: Computes the modulus of the second element by the top element in the stack.
@@ -99,5 +99,3 @@ typedef struct instruction_s
 
 ## Conclusion
 The Monty program is a simple interpreter that reads and processes Monty bytecode files. It utilizes a stack data structure and supports various stack manipulation and arithmetic operations. This documentation provides an overview of the program's components and functionality to help understand its implementation.
-
-**Authors: [ Jukunye Sh
