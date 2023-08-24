@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * handle_error - Prints appropriate error messages determined by their error code.
+ * print_error - Prints appropriate error messages determined by their error code.
  * @error_code: The error codes are the following:
  * (1) => The user does not give any file or gives more than one file to the program.
  * (2) => The file provided is not a file that can be opened or read.
@@ -9,7 +9,7 @@
  * (4) => The program is unable to malloc more memory.
  * (5) => The parameter passed to the instruction "push" is not an int.
 **/
-void handle_error(int error_code, ...)
+void print_error(int error_code, ...)
 {
 	va_list args;
 	char *op_code;
