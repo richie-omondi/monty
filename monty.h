@@ -33,7 +33,10 @@ typedef void (*opcode_func)(stack_t **, unsigned int);
 /* Stack operations*/
 stack_t *create_node(int data);
 void free_node(void);
-void call_fn(opcode_func func, char *op_code, char *num, int line_no, int data_struct)
+void call_fn(opcode_func func, char *op_code, char *num, int line_no, int data_struct);
 
-/** Handle errors **/
+/* Queue operations */
+void add_to_queue(stack_t **new_node, unsigned int line_no);
+
+/** Print errors **/
 void print_error(int error_code, ...);
