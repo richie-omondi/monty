@@ -78,12 +78,12 @@ void call_function(opcode_function func, char *op_code, char *num, int line_numb
 /**
  * add_to_queue - Adds a node to the queue.
  * @new_node: Pointer to the new node.
- * @line_no: line number of the opcode.
+ * @line_number: line number of the opcode.
  */
-void add_to_queue(stack_t **new_node, unsigned int line_no)
+void add_to_queue(stack_t **new_node, unsigned int line_number)
 {
 	stack_t *temp;
-	(void) unsigned int line_no;
+	(void) unsigned int line_number;
 
 	if (new_node == NULL || *new_node == NULL)
 		exit(EXIT_FAILURE);
