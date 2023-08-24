@@ -50,7 +50,7 @@ typedef void (*opcode_function)(stack_t **, unsigned int);
 /* Data structure operations*/
 stack_t *create_node(int data);
 void free_node(void);
-void call_function(opcode_func func, char *op_code, char *num, int line_number, int data_struct);
+void call_function(opcode_function func, char *op_code, char *num, int line_number, int data_struct);
 void find_function(char *opcode, char *opcode_argument, int line_number, int data_structure);
 int tokenize(char *input, int line_number, int data_structure);
 void open_file(char *pathname);
@@ -60,3 +60,5 @@ void push_to_stack(stack_t **new_node, unsigned int line_number);
 
 /** Print errors **/
 void print_error(int error_code, ...);
+
+#endif

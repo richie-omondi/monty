@@ -29,10 +29,10 @@ stack_t *create_node(int data)
 
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
-		handle_error(4);
+		print_error(4);
 	node->next = NULL;
 	node->prev = NULL;
-	node->data = data;
+	node->n = data;
 	return (node);
 }
 
@@ -45,7 +45,8 @@ stack_t *create_node(int data)
  * @data_structure: If 0, nodes will be added as a stack.
  * If 1, nodes will be added as a queue.
  */
-void call_function(opcode_function func, char *op_code, char *num, int line_number, int data_structure)
+void call_function(opcode_function func, char *op_code, char *num,
+		int line_number, int data_structure)
 {
 	stack_t *node;
 	int multiplier = 1;
@@ -62,17 +63,17 @@ void call_function(opcode_function func, char *op_code, char *num, int line_numb
 			print_error(5, line_number);
 		for (i = 0; num[i] != '\0'; i++)
 		{
-			if (isdigit(val[i]) == 0)
+			if (isdigit(num[i]) == 0)
 				print_error(5, line_number);
 		}
-		node = create_node(atoi(num) * flag);
+		node = create_node(atoi(num) * multiplier);
 		if (data_structure == 0)
 			func(&node, line_number);
 		if (data_structure == 1)
 			add_to_queue(&node, line_number);
 	}
 	else
-		func(&head, line_no);
+		func(&head, line_number);
 }
 
 /**
@@ -83,7 +84,7 @@ void call_function(opcode_function func, char *op_code, char *num, int line_numb
 void add_to_queue(stack_t **new_node, unsigned int line_number)
 {
 	stack_t *temp;
-	(void) unsigned int line_number;
+	(void) line_number;
 
 	if (new_node == NULL || *new_node == NULL)
 		exit(EXIT_FAILURE);
@@ -111,27 +112,14 @@ void add_to_queue(stack_t **new_node, unsigned int line_number)
  *
  * Return: void
  */
-void find_function(char *opcode, char *opcode_argument, int line_number, int data_structure)
+void find_function(char *opcode, char *opcode_argument,
+		int line_number, int data_structure)
 {
 	int i;
 	int multiplier;
 
 	instruction_t function_list[] = {
-		{"push", add_to_stack},
-		{"pall", print_stack},
-		{"pint", print_top},
-		{"pop", pop_top},
-		{"nop", nop},
-		{"swap", swap_nodes},
-		{"add", add_nodes},
-		{"sub", sub_nodes},
-		{"div", div_nodes},
-		{"mul", mul_nodes},
-		{"mod", mod_nodes},
-		{"pchar", print_char},
-		{"pstr", print_str},
-		{"rotl", rotl},
-		{"rotr", rotr},
+		{"push", push_to_stack},
 		{NULL, NULL}
 	};
 
@@ -142,7 +130,8 @@ void find_function(char *opcode, char *opcode_argument, int line_number, int dat
 	{
 		if (strcmp(opcode, function_list[i].opcode) == 0)
 		{
-			call_function(function_list[i].f, opcode, opcode_argument, line_number, data_structure);
+			call_function(function_list[i].f, opcode, opcode_argument,
+					line_number, data_structure);
 			multiplier = 0;
 		}
 	}

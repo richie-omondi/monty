@@ -20,8 +20,9 @@ int tokenize(char *input, int line_number, int data_structure)
 
 	opcode = strtok(input, delimiter);
 	if (opcode == NULL)
-		return (format);
-	value = strtok(NULL, delimiter);
+		return (data_structure);
+
+	opcode_argument = strtok(NULL, delimiter);
 
 	if (strcmp(opcode, "stack") == 0)
 		return (0);
@@ -62,7 +63,7 @@ void open_file(char *pathname)
 {
 	FILE *fd = fopen(pathname, "r");
 
-	if (file_name == NULL || fd == NULL)
+	if (pathname == NULL || fd == NULL)
 		print_error(2, pathname);
 
 	read_input_in_file(fd);
