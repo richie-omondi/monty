@@ -30,7 +30,7 @@ It executes various stack manipulation and arithmetic operations based on the in
 ## Data_Structures
 ### `stack_t` Structure
 - Represents a node in the stack.
-- Contatins:
+- Contains:
     - `int n`: Integer value stored in the node.
     - `struct stack_s *prev`: Pointer to the previous node in the stack.
     - `struct stack_s *next`: pointer to the next node in the stack.
@@ -44,7 +44,7 @@ typedef struct stack_s
 
 ```
 ### `instruction_t` Structure
-- Represetns an instruction to be executed.
+- Represents an instruction to be executed.
 - Contains:
     - `char *opcode`: Name of the instruction.
     - `void (*f)(stact_t **stack, unsigned int line_number)`: pointer to the function that implements the instruction.
@@ -56,28 +56,27 @@ typedef struct instruction_s
 } instruction_t;
 
 ```
-## Main_Function
+## Main Function
 `int main(int argc, char **argv)`
 - Entry point of the program.
 - Parses command line arguments to get the input bytecode file path.
-- Calls the `read_file` function to process the bytecode file.
+- Calls the `open_file` function to open the file specified by *pathname* then reads the bytecode file for further processing.
 
-## Read_file
-`void read_file(char *pathname)`
+## Read the file
+`read_input_in_file(FILE *fd)`
 - Reads the content of a file specified by the `pathname`.
 - Reads the file line by line by calling the `getline` function in a loop until the end of file is reached (`getline` returns `-1`) 
 - processes each line by tokenizing using the `tokenize` function.
-- Calls the `operations` function to perform stack operations based on instructions.
 
 ## Tokenization
 ### `tokenize` Function
-`char **tokenize(char *line)`
+`int tokenize(char *input, int line_number, int data_structure)`
 - Splits a string into an array of tokens based on delimiter characters.
-- Returns a dynamically allocated array of strings(tokens).
+- Returns a number (`0` or `1`) used to determine whether to use a stack or a queue.
 - Utilizes the `strtok` function to split the string.
 
 ## Operations
-### `operations` Function
+### `find_function()` Function
 - Executes the appropriate operation based on the given opcode.
 - Compares the opcode with a predefined list of instructions and their associated functions.
 - If a matching opcode is found, the associated function is called with the stack and line number.
@@ -99,6 +98,6 @@ typedef struct instruction_s
 - Memory is properly freed to prevent memory leaks using functions like `free_list`, `free_array`, and `free`.
 
 ## Conclusion
-The Monty program is a simple interpreter that reads and processes Monty bytecode files. It utilizes a stack data structure and supports various stack manipulation and arithmentic operations. This documentation provides an overview of the program's components and functionality to help undestand its implementation.
+The Monty program is a simple interpreter that reads and processes Monty bytecode files. It utilizes a stack data structure and supports various stack manipulation and arithmetic operations. This documentation provides an overview of the program's components and functionality to help understand its implementation.
 
 **Authors: [ Jukunye Sh
