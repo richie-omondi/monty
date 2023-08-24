@@ -62,6 +62,7 @@ void push_to_stack(stack_t **new_node, unsigned int line_number);
 void print_entire_stack(stack_t **stack, __attribute__((unused))unsigned int line_number);
 void print_stack_top(stack_t **stack, unsigned int line_number);
 void pop_stack(stack_t **stack, unsigned int line_number);
+void swap_nodes(stack_t **stack, unsigned int line_number);
 
 /** Print errors **/
 void print_error(int error_code, ...);
