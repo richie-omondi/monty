@@ -58,12 +58,12 @@ void read_input_in_file(FILE *fd);
 void add_to_queue(stack_t **new_node, unsigned int line_number);
 
 /* Opcode operation */
-void push_to_stack(stack_t **new_node, unsigned int line_number);
+void push(stack_t **new_node, unsigned int line_number);
 void print_entire_stack(stack_t **stack, __attribute__((unused))unsigned int line_number);
 void print_stack_top(stack_t **stack, unsigned int line_number);
-void pop_stack(stack_t **stack, unsigned int line_number);
-void swap_nodes(stack_t **stack, unsigned int line_number);
-void add_nodes(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 
 /** Print errors **/

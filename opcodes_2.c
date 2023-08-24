@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * add_nodes - Adds the top two elements of the stack.
+ * add - Adds the top two elements of the stack.
  * @stack: Double pointer pointing to top node of the stack.
  * @line_number: Integer representing the line number of the opcode.
  */
-void add_nodes(stack_t **stack, unsigned int line_number)
+void add(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 

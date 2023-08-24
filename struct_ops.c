@@ -119,12 +119,13 @@ void find_function(char *opcode, char *opcode_argument,
 	int multiplier;
 
 	instruction_t function_list[] = {
-		{"push", push_to_stack},
+		{"push", push},
 		{"pall", print_entire_stack},
 		{"pint", print_stack_top},
-		{"pop", pop_stack},
-		{"swap", swap_nodes},
-		{"add", add_nodes},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 

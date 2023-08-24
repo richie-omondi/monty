@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * push_to_stack - Adds a node to the top of the stack.
+ * push - Adds a node to the top of the stack.
  * @new_node: Pointer to the new node to be pushed.
  * @line_number: Integer representing the line number of the opcode.
  */
-void push_to_stack(stack_t **new_node, unsigned int line_number)
+void push(stack_t **new_node, unsigned int line_number)
 {
 	stack_t *temp;
 	(void) line_number;
@@ -57,11 +57,11 @@ void print_stack_top(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pop_stack- Removes the top node from the stack.
+ * pop - Removes the top node from the stack.
  * @stack: Double pointer pointing to the top node of the stack.
  * @line_number: Integer representing the line number of the opcode.
  */
-void pop_stack(stack_t **stack, unsigned int line_number)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
@@ -76,11 +76,11 @@ void pop_stack(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * swap_nodes - Swaps the top two elements of the stack.
+ * swap - Swaps the top two elements of the stack.
  * @stack: Double pointer pointing to the top node of the stack.
  * @line_number: Integer representing the line number of the opcode.
  */
-void swap_nodes(stack_t **stack, unsigned int line_number)
+void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
@@ -95,4 +95,3 @@ void swap_nodes(stack_t **stack, unsigned int line_number)
 	temp->prev = NULL;
 	*stack = temp;
 }
-
