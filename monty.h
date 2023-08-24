@@ -9,7 +9,7 @@
 #include <ctype.h>
 #include <stdarg.h>
 
-/** Stacks **/
+/** Stack **/
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -29,6 +29,8 @@ typedef struct stack_s
 
 extern stack_t *head;
 
+/* Struct */
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -45,11 +47,12 @@ typedef struct instruction_s
 
 typedef void (*opcode_func)(stack_t **, unsigned int);
 
-/* Stack operations*/
+/* Struct operations*/
 stack_t *create_node(int data);
 void free_node(void);
 void call_function(opcode_func func, char *op_code, char *num, int line_no, int data_struct);
 void find_function(char *opcode, char *opcode_argument, int line_number, int data_structure);
+int tokenize(char *input, int line_number, int data_structure);
 
 /* Queue operations */
 void add_to_queue(stack_t **new_node, unsigned int line_no);
