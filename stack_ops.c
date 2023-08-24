@@ -19,11 +19,11 @@ void free_node(void)
 }
 
 /**
- * add_node - Adds a node.
+ * create_node - Creates a node.
  * @data: Data to go inside the node.
  * Return: Pointer to the node, otherwise NULL.
  */
-stack_t *add_node(int data)
+stack_t *create_node(int data)
 {
 	stack_t *node;
 
@@ -65,7 +65,7 @@ void call_fn(opcode_func func, char *op_code, char *num, int line_no, int data_s
 			if (isdigit(val[i]) == 0)
 				print_error(5, line_no);
 		}
-		node = add_node(atoi(num) * flag);
+		node = create_node(atoi(num) * flag);
 		if (data_struct == 0)
 			func(&node, line_no);
 		if (data_struct == 1)
