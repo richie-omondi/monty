@@ -27,6 +27,9 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
+extern stack_t *head;
+typedef void (*op_func)(stack_t **, unsigned int);
+
 /* Stack operations*/
 stack_t *add_node(int data);
 void free_node(void);
