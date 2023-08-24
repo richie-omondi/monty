@@ -27,6 +27,9 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
-/*Stack operations*/
+/* Stack operations*/
 stack_t *add_node(int data);
 void free_node(void);
+
+/** Handle errors **/
+void handle_error(int error_code, ...);

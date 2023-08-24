@@ -9,7 +9,7 @@
  * (4) => The program is unable to malloc more memory.
  * (5) => The parameter passed to the instruction "push" is not an int.
 **/
-void hanlde_error(int error_code, ...)
+void handle_error(int error_code, ...)
 {
 	va_list args;
 	char *op;
