@@ -37,7 +37,7 @@ stack_t *create_node(int data)
 }
 
 /**
- * call_fn - Calls the required function.
+ * call_function - Calls the required function.
  * @func: Pointer to the function that is to be called.
  * @op_code: string representing the opcode.
  * @num: a string representing a numeric value.
@@ -45,7 +45,7 @@ stack_t *create_node(int data)
  * @data_structure: If 0, nodes will be added as a stack.
  * If 1, nodes will be added as a queue.
  */
-void call_fn(opcode_func func, char *op_code, char *num, int line_number, int data_structure)
+void call_function(opcode_func func, char *op_code, char *num, int line_number, int data_structure)
 {
 	stack_t *node;
 	int multiplier = 1;
@@ -142,7 +142,7 @@ void find_function(char *opcode, char *opcode_argument, int line_number, int dat
 	{
 		if (strcmp(opcode, function_list[i].opcode) == 0)
 		{
-			call_fn(function_list[i].f, opcode, opcode_argument, line_number, data_structure);
+			call_function(function_list[i].f, opcode, opcode_argument, line_number, data_structure);
 			multiplier = 0;
 		}
 	}
