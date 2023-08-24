@@ -56,7 +56,10 @@ int tokenize(char *input, int line_number, int data_structure);
 void open_file(char *pathname);
 void read_input_in_file(FILE *fd);
 void add_to_queue(stack_t **new_node, unsigned int line_number);
+
+/* Opcode operation */
 void push_to_stack(stack_t **new_node, unsigned int line_number);
+void print_stack(stack_t **stack, __attribute__((unused))unsigned int line_number);
 
 /** Print errors **/
 void print_error(int error_code, ...);
