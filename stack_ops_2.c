@@ -31,3 +31,22 @@ int tokenize(char *input, int line_number, int data_structure)
 	find_function(opcode, opcode_argument, line_number, data_structure);
 	return (data_structure);
 }
+
+/**
+ * read_input - reads input after opening a file
+ * @fd: pointer to file descriptor
+ * Return: void
+ */
+
+void read_input(FILE *fd)
+{
+	int line_number, data_structure = 0;
+	char *buffer = NULL;
+	size_t length = 0;
+
+	for (line_number = 1; getline(&buffer, &length, fd) != -1; line_number++)
+	{
+		data_structure = tokenize(buffer, line_number, data_structure);
+	}
+	free(buffer);
+}
