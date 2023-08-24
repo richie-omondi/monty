@@ -46,17 +46,17 @@ void print_error(int error_code, ...)
 }
 
 /**
- * print_error_2 - Prints errors depending on the error code.
+ * print_other_errors - Prints errors depending on the error code.
  * @error_code: The error codes are the following:
  * (6) => When the stack is empty for pint.
  * (7) => When the stack is empty for pop.
  * (8) => When the stack is too short for operation.
  * (9) => Division by zero.
  */
-void print_error_2(int error_code, ...)
+void print_other_errors(int error_code, ...)
 {
 	va_list args;
-	char *opcode;
+	char *op_code;
 	int num;
 
 	va_start(args, error_code);
@@ -72,8 +72,8 @@ void print_error_2(int error_code, ...)
 			break;
 		case 8:
 			num = va_arg(args, unsigned int);
-			opcode = va_arg(args, char *);
-			fprintf(stderr, "L%d: can't %s, stack too short\n", num, opcode);
+			op_code = va_arg(args, char *);
+			fprintf(stderr, "L%d: can't %s, stack too short\n", num, op_code);
 			break;
 		case 9:
 			fprintf(stderr, "L%d: division by zero\n",

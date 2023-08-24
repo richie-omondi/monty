@@ -51,7 +51,7 @@ void print_entire_stack(stack_t **stack, __attribute__((unused))unsigned int lin
 void print_stack_top(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL || *stack == NULL)
-		print_error(6, line_number);
+		print_other_errors(6, line_number);
 	printf("%d\n", (*stack)->n);
 }
 

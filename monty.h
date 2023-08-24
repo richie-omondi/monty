@@ -64,6 +64,6 @@ void print_stack_top(stack_t **stack, unsigned int line_number);
 
 /** Print errors **/
 void print_error(int error_code, ...);
-void print_error_2(int error_code, ...)
+void print_other_errors(int error_code, ...);
 
 #endif
