@@ -44,3 +44,44 @@ void print_error(int error_code, ...)
 	free_node();
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * print_error_2 - Prints errors depending on the error code.
+ * @error_code: The error codes are the following:
+ * (6) => When the stack is empty for pint.
+ * (7) => When the stack is empty for pop.
+ * (8) => When the stack is too short for operation.
+ * (9) => Division by zero.
+ */
+void print_error_2(int error_code, ...)
+{
+	va_list args;
+	char *opcode;
+	int num;
+
+	va_start(args, error_code);
+	switch (error_code)
+	{
+		case 6:
+			fprintf(stderr, "L%d: can't pint, stack empty\n",
+				va_arg(args, int));
+			break;
+		case 7:
+			fprintf(stderr, "L%d: can't pop an empty stack\n",
+				va_arg(args, int));
+			break;
+		case 8:
+			num = va_arg(args, unsigned int);
+			opcode = va_arg(args, char *);
+			fprintf(stderr, "L%d: can't %s, stack too short\n", num, opcode);
+			break;
+		case 9:
+			fprintf(stderr, "L%d: division by zero\n",
+				va_arg(args, unsigned int));
+			break;
+		default:
+			break;
+	}
+	free_node();
+	exit(EXIT_FAILURE);
+}
