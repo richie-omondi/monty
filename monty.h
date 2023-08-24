@@ -47,14 +47,14 @@ typedef struct instruction_s
 
 typedef void (*opcode_func)(stack_t **, unsigned int);
 
-/* Struct operations*/
+/* Data structure operations*/
 stack_t *create_node(int data);
 void free_node(void);
 void call_function(opcode_func func, char *op_code, char *num, int line_no, int data_struct);
 void find_function(char *opcode, char *opcode_argument, int line_number, int data_structure);
 int tokenize(char *input, int line_number, int data_structure);
-
-/* Queue operations */
+void open_file(char *pathname);
+void read_input_in_file(FILE *fd);
 void add_to_queue(stack_t **new_node, unsigned int line_no);
 
 /** Print errors **/
