@@ -12,7 +12,7 @@
 void handle_error(int error_code, ...)
 {
 	va_list args;
-	char *op;
+	char *op_code;
 	int num;
 
 	va_start(args, error_code);
@@ -26,9 +26,9 @@ void handle_error(int error_code, ...)
 				va_arg(args, char *));
 			break;
 		case 3:
-			l_num = va_arg(args, int);
-			op = va_arg(args, char *);
-			fprintf(stderr, "L%d: unknown instruction %s\n", num, op);
+			num = va_arg(args, int);
+			op_code = va_arg(args, char *);
+			fprintf(stderr, "L%d: unknown instruction %s\n", num, op_code);
 			break;
 		case 4:
 			fprintf(stderr, "Error: malloc failed\n");
