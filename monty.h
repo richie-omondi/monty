@@ -64,6 +64,7 @@ void print_stack_top(stack_t **stack, unsigned int line_number);
 void pop_stack(stack_t **stack, unsigned int line_number);
 void swap_nodes(stack_t **stack, unsigned int line_number);
 void add_nodes(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 
 /** Print errors **/
 void print_error(int error_code, ...);
