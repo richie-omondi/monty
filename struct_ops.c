@@ -122,6 +122,7 @@ void find_function(char *opcode, char *opcode_argument,
 		{"push", push_to_stack},
 		{"pall", print_entire_stack},
 		{"pint", print_stack_top},
+		{"pop", pop_stack},
 		{NULL, NULL}
 	};
 

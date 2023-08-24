@@ -29,7 +29,8 @@ void push_to_stack(stack_t **new_node, unsigned int line_number)
  * @stack: Double pointer pointing to the top node of the stack.
  * @line_number: line number of  the opcode.
  */
-void print_entire_stack(stack_t **stack, __attribute__((unused))unsigned int line_number)
+void print_entire_stack(stack_t **stack,
+		__attribute__((unused))unsigned int line_number)
 {
 	stack_t *temp;
 
@@ -44,7 +45,7 @@ void print_entire_stack(stack_t **stack, __attribute__((unused))unsigned int lin
 }
 
 /**
- * print_stack top - Prints the top node of the stack.
+ * print_stack_top - Prints the top node of the stack.
  * @stack: Double pointer pointing to the top node of the stack.
  * @line_number: Integer representing the line number of the opcode.
  */
