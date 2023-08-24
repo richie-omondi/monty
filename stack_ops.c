@@ -104,19 +104,19 @@ void add_to_queue(stack_t **new_node, unsigned int line_no)
 /**
  * find_function - find the appropriate function for the opcode
  * @opcode: opcode
- * @opcode_value: argument of opcode
+ * @opcode_argument: argument of opcode
  * @data_structure: If 0, nodes will be added as a stack.
- * If 1, noded will be added as a queue.
+ * If 1, nodes will be added as a queue.
  * @line_number: line number
  *
  * Return: void
  */
-void find_func(char *opcode, char *opcode_value, int line_number, int data_structure)
+void find_func(char *opcode, char *opcode_argument, int line_number, int data_structure)
 {
 	int i;
 	int multiplier;
 
-	instruction_t func_list[] = {
+	instruction_t function_list[] = {
 		{"push", add_to_stack},
 		{"pall", print_stack},
 		{"pint", print_top},
@@ -138,15 +138,15 @@ void find_func(char *opcode, char *opcode_value, int line_number, int data_struc
 	if (opcode[0] == '#')
 		return;
 
-	for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
+	for (multiplier = 1, i = 0; function_list[i].opcode != NULL; i++)
 	{
-		if (strcmp(opcode, func_list[i].opcode) == 0)
+		if (strcmp(opcode, function_list[i].opcode) == 0)
 		{
-			call_fun(func_list[i].f, opcode, value, ln, format);
-			flag = 0;
+			call_fn(function_list[i].f, opcode, opcode_argument, line_number, data_structure);
+			multiplier = 0;
 		}
 	}
-	if (flag == 1)
-		err(3, ln, opcode);
+	if (multiplier == 1)
+		print_error(3, line_number, opcode);
 }
 
