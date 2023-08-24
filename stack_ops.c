@@ -111,7 +111,7 @@ void add_to_queue(stack_t **new_node, unsigned int line_no)
  *
  * Return: void
  */
-void find_func(char *opcode, char *opcode_argument, int line_number, int data_structure)
+void find_function(char *opcode, char *opcode_argument, int line_number, int data_structure)
 {
 	int i;
 	int multiplier;
