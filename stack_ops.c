@@ -1,3 +1,5 @@
+#include "monty.h"
+
 /**
  * free_node - Frees a node in the stack.
  */

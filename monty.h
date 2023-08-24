@@ -9,6 +9,8 @@
 #include <ctype.h>
 #include <stdarg.h>
 
+/** Stacks **/
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -24,3 +26,7 @@ typedef struct stack_s
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
+
+/*Stack operations*/
+stack_t *add_node(int data);
+void free_node(void);
