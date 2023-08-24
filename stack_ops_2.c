@@ -33,12 +33,12 @@ int tokenize(char *input, int line_number, int data_structure)
 }
 
 /**
- * read_input - reads input after opening a file
+ * read_input_in_file - reads input after opening a file
  * @fd: pointer to file descriptor
  * Return: void
  */
 
-void read_input(FILE *fd)
+void read_input_in_file(FILE *fd)
 {
 	int line_number, data_structure = 0;
 	char *buffer = NULL;
@@ -49,4 +49,22 @@ void read_input(FILE *fd)
 		data_structure = tokenize(buffer, line_number, data_structure);
 	}
 	free(buffer);
+}
+
+/**
+ * open_file - opens a file
+ * @pathname: file whose name is the string
+ * pointed to by pathname and associates a stream with it
+ * Return: void
+ */
+
+void open_file(char *pathname)
+{
+	FILE *fd = fopen(pathname, "r");
+
+	if (file_name == NULL || fd == NULL)
+		print_error(2, pathname);
+
+	read_input_in_file(fd);
+	fclose(fd);
 }
