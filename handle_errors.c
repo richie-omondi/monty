@@ -1,9 +1,11 @@
 #include "monty.h"
 
 /**
- * handle_error - Prints appropriate error messages determined by their error code.
+ * handle_error - Prints the appropriate error message
+ * depending on the error code.
  * @error_code: The error codes are the following:
- * (1) => The user does not give any file or gives more than one file to the program.
+ * (1) => The user does not give any file or gives more than
+ * one file to the program.
  * (2) => The file provided is not a file that can be opened or read.
  * (3) => The file provided contains an invalid instruction.
  * (4) => The program is unable to malloc more memory.
