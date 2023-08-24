@@ -45,33 +45,32 @@ stack_t *add_node(int data)
  * @data_struct. If 0, nodes will be added as a stack.
  * if 1, nodes will be added as a queue.
  */
-void call_fn(op_func func, char *op_code, char *num, int line_no, int data_struct)
+void call_fn(opcode_func func, char *op_code, char *num, int line_no, int data_struct)
 {
 	stack_t *node;
-	int flag;
+	int multiplier = 1;
 	int i;
 
-	flag = 1;
-	if (strcmp(op, "push") == 0)
+	if (strcmp(op_code, "push") == 0)
 	{
-		if (val != NULL && val[0] == '-')
+		if (num != NULL && num[0] == '-')
 		{
-			val = val + 1;
-			flag = -1;
+			num = num + 1;
+			multiplier = -1;
 		}
-		if (val == NULL)
-			err(5, ln);
-		for (i = 0; val[i] != '\0'; i++)
+		if (num == NULL)
+			print_error(5, line_no);
+		for (i = 0; num[i] != '\0'; i++)
 		{
 			if (isdigit(val[i]) == 0)
-				err(5, ln);
+				print_error(5, line_no);
 		}
-		node = create_node(atoi(val) * flag);
-		if (format == 0)
-			func(&node, ln);
-		if (format == 1)
-			add_to_queue(&node, ln);
+		node = add_node(atoi(num) * flag);
+		if (data_struct == 0)
+			func(&node, line_no);
+		if (data_struct == 1)
+			add_to_queue(&node, line_no);
 	}
 	else
-		func(&head, ln);
+		func(&head, line_no);
 }
