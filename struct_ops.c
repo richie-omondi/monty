@@ -124,6 +124,7 @@ void find_function(char *opcode, char *opcode_argument,
 		{"pint", print_stack_top},
 		{"pop", pop_stack},
 		{"swap", swap_nodes},
+		{"add", add_nodes},
 		{NULL, NULL}
 	};
 
