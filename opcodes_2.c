@@ -18,3 +18,14 @@ void add_nodes(stack_t **stack, unsigned int line_number)
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
+
+/**
+ * nop - Does nothing.
+ * @stack: Double pointer pointing to the top node of the stack.
+ * @line_number: Integer representing the line number of the opcode.
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
