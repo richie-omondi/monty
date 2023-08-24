@@ -1,8 +1,7 @@
 #include "monty.h"
 
 /**
- * handle_error - Prints the appropriate error message
- * depending on the error code.
+ * print_error - Prints appropriate error messages determined by their error code.
  * @error_code: The error codes are the following:
  * (1) => The user does not give any file or gives more than
  * one file to the program.
@@ -11,10 +10,10 @@
  * (4) => The program is unable to malloc more memory.
  * (5) => The parameter passed to the instruction "push" is not an int.
 **/
-void handle_error(int error_code, ...)
+void print_error(int error_code, ...)
 {
 	va_list args;
-	char *op;
+	char *op_code;
 	int num;
 
 	va_start(args, error_code);
@@ -28,9 +27,9 @@ void handle_error(int error_code, ...)
 				va_arg(args, char *));
 			break;
 		case 3:
-			l_num = va_arg(args, int);
-			op = va_arg(args, char *);
-			fprintf(stderr, "L%d: unknown instruction %s\n", num, op);
+			num = va_arg(args, int);
+			op_code = va_arg(args, char *);
+			fprintf(stderr, "L%d: unknown instruction %s\n", num, op_code);
 			break;
 		case 4:
 			fprintf(stderr, "Error: malloc failed\n");
