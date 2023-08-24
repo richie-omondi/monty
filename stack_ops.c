@@ -29,7 +29,7 @@ stack_t *add_node(int data)
 
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
-		err(4);
+		handle_error(4);
 	node->next = NULL;
 	node->prev = NULL;
 	node->data = data;
