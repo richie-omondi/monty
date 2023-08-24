@@ -55,3 +55,22 @@ void print_stack_top(stack_t **stack, unsigned int line_number)
 	printf("%d\n", (*stack)->n);
 }
 
+/**
+ * pop_stack- Removes the top node from the stack.
+ * @stack: Double pointer pointing to the top node of the stack.
+ * @line_number: Integer representing the line number of the opcode.
+ */
+void pop_stack(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+
+	if (stack == NULL || *stack == NULL)
+		print_other_errors(7, line_number);
+
+	temp = *stack;
+	*stack = temp->next;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+	free(temp);
+}
+
