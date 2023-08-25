@@ -92,10 +92,14 @@ typedef struct instruction_s
 - `sub`: Subtracts the top element from the second element in the stack.
 - `mul`: Multiplies the top two elements of the stack.
 - `mod`: Computes the modulus of the second element by the top element in the stack.
+- `pchar`: Prints the character at the top of the stack.
+- `pstr`: Prints the string at the top of the stack.
+- `rotl`:  Rotates the stack to the top; the top element of the stack becomes the last one, and the second top element of the stack becomes the first one.
+- `rotr`:  Rotates the stack to the bottom; the last element of the stack becomes the top element of the stack
 
 ## Memory_Management
-- The program utilizes dynamic memory allocation for creating nodes and arrays of tokens.
-- Memory is properly freed to prevent memory leaks using functions like `free_list`, `free_array`, and `free`.
+- The program utilizes dynamic memory allocation for creating nodes.
+- Memory is properly freed to prevent memory leaks using functions like `free` and `free_node`.
 
 ## Conclusion
 The Monty program is a simple interpreter that reads and processes Monty bytecode files. It utilizes a stack data structure and supports various stack manipulation and arithmetic operations. This documentation provides an overview of the program's components and functionality to help understand its implementation.
