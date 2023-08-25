@@ -1,3 +1,5 @@
+#include "monty.h"
+
 /**
  * mod - computes the rest of the division of the second top element
  * of the stack by the top element of the stack.
@@ -16,7 +18,7 @@ void mod(stack_t **stack, unsigned int line_number)
 	if ((*stack)->n == 0)
 		print_other_errors(9, line_number);
 	(*stack) = (*stack)->next;
-	sum = (*stack)->n % (*stack)->prev->n;
+	modulus = (*stack)->n % (*stack)->prev->n;
 	(*stack)->n = modulus;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
