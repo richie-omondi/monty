@@ -73,3 +73,24 @@ void div_nodes(stack_t **stack, unsigned int line_number)
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
+
+/**
+ * mul - Multiplies the second top element of the stack
+ * with the top element of the stack.
+ * @stack: Pointer to a pointer pointing to the top node of the stack.
+ * @line_number: Integer representing the line number of the opcode.
+ */
+void mul(stack_t **stack, unsigned int line_number)
+{
+	int product;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		print_other_errors(8, line_number, "mul");
+
+	(*stack) = (*stack)->next;
+	product = (*stack)->n * (*stack)->prev->n;
+	(*stack)->n = product;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+}
+
