@@ -98,3 +98,29 @@ void rotl(stack_t **stack, unsigned int line_number)
 	(*stack)->prev->next = NULL;
 	(*stack)->prev = NULL;
 }
+
+/**
+ * rotr - Rotates the last node of the stack to the top.
+ * @stack: Double pointer pointing to the top node of the stack.
+ * @line_number: Integer representing the line number of the opcode.
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+
+	(void) line_number;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		return;
+
+	temp = *stack;
+
+	while (temp->next != NULL)
+		temp = temp->next;
+
+	temp->next = *stack;
+	temp->prev->next = NULL;
+	temp->prev = NULL;
+	(*stack)->prev = temp;
+	(*stack) = temp;
+}
