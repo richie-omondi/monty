@@ -48,10 +48,12 @@ void print_char(stack_t **stack, unsigned int line_number)
  * @stack: Double pointer pointing to the top node of the stack.
  * @line_number: Integer representing the line number of the opcode.
  */
-void print_string(stack_t **stack, __attribute__((unused))unsigned int line_number)
+void print_string(stack_t **stack, unsigned int line_number)
 {
 	int character;
 	stack_t *temp;
+
+	(void) line_number;
 
 	if (stack == NULL || *stack == NULL)
 	{
