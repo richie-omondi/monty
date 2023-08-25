@@ -73,5 +73,6 @@ void mod(stack_t **stack, unsigned int line_number);
 /** Print errors **/
 void print_error(int error_code, ...);
 void print_other_errors(int error_code, ...);
+void print_more_errors(int error_code, ...);
 
 #endif
