@@ -126,6 +126,7 @@ void find_function(char *opcode, char *opcode_argument,
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", sub},
 		{NULL, NULL}
 	};
 
