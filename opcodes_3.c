@@ -23,3 +23,22 @@ void mod(stack_t **stack, unsigned int line_number)
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
+
+/**
+ * print_char - Prints the character at the top of the stack
+ * followed by a new line.
+ * @stack: Double pointer pointing to the top node of the stack.
+ * @line_number: Integer representing the line number of the opcode.
+ */
+void print_char(stack_t **stack, unsigned int line_number)
+{
+	int ascii;
+
+	if (stack == NULL || *stack == NULL)
+		string_err(11, line_number);
+
+	ascii = (*stack)->n;
+	if (ascii < 0 || ascii > 127)
+		string_err(10, line_number);
+	printf("%c\n", ascii);
+}
