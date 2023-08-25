@@ -97,7 +97,7 @@ typedef struct instruction_s
 - `rotl`:  Rotates the stack to the top; the top element of the stack becomes the last one, and the second top element of the stack becomes the first one.
 - `rotr`:  Rotates the stack to the bottom; the last element of the stack becomes the top element of the stack
 
-## Memory_Management
+## Memory Management
 - The program utilizes dynamic memory allocation for creating nodes.
 - Memory is properly freed to prevent memory leaks using functions like `free` and `free_node`.
 
