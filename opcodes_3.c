@@ -42,3 +42,32 @@ void print_char(stack_t **stack, unsigned int line_number)
 		print_more_errors(10, line_number);
 	printf("%c\n", character);
 }
+
+/**
+ * print_string - Prints the string at the top of the stack.
+ * @stack: Double pointer pointing to the top node of the stack.
+ * @line_number: Integer representing the line number of the opcode.
+ */
+void print_string(stack_t **stack, __attribute__((unused))unsigned int line_number)
+{
+	int character;
+	stack_t *temp;
+
+	if (stack == NULL || *stack == NULL)
+	{
+		printf("\n");
+		return;
+	}
+
+	temp = *stack;
+	while (temp != NULL)
+	{
+		character = temp->n;
+		if (character <= 0 || character > 127)
+			break;
+		printf("%c", character);
+		temp = temp->next;
+	}
+	printf("\n");
+}
+
