@@ -52,3 +52,24 @@ void sub(stack_t **stack, unsigned int line_number)
 	(*stack)->prev = NULL;
 }
 
+/**
+ * div - Divides the second top element of the stack
+ * by the top element of the stack.
+ * @stack: Pointer to a pointer pointing to the top node of the stack.
+ * @line_number: Integer representing the line number of the opcode.
+ */
+void div(stack_t **stack, unsigned int line_number)
+{
+	int division;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		print_other_errors(8, line_number, "div");
+
+	if ((*stack)->n == 0)
+		print_other_errors(9, line_number);
+	(*stack) = (*stack)->next;
+	division = (*stack)->n / (*stack)->prev->n;
+	(*stack)->n = division;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+}
