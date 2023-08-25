@@ -66,7 +66,7 @@ void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
-void div(stack_t **stack, unsigned int line_number);
+void div_nodes(stack_t **stack, unsigned int line_number);
 
 /** Print errors **/
 void print_error(int error_code, ...);
