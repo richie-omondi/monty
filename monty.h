@@ -69,6 +69,7 @@ void sub(stack_t **stack, unsigned int line_number);
 void div_nodes(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+void print_char(stack_t **stack, unsigned int line_number);
 
 /** Print errors **/
 void print_error(int error_code, ...);
