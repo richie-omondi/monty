@@ -131,6 +131,7 @@ void find_function(char *opcode, char *opcode_argument,
 		{"mul", mul},
 		{"mod", mod},
 		{"pchar", print_char},
+		{"pstr", print_string},
 		{NULL, NULL}
 	};
 
