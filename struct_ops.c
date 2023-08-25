@@ -130,6 +130,7 @@ void find_function(char *opcode, char *opcode_argument,
 		{"div", div_nodes},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", print_char},
 		{NULL, NULL}
 	};
 

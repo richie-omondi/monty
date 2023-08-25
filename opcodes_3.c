@@ -32,13 +32,13 @@ void mod(stack_t **stack, unsigned int line_number)
  */
 void print_char(stack_t **stack, unsigned int line_number)
 {
-	int char;
+	int character;
 
 	if (stack == NULL || *stack == NULL)
 		print_more_errors(11, line_number);
 
-	char = (*stack)->n;
-	if (char < 0 || char > 127)
+	character = (*stack)->n;
+	if (character < 0 || character > 127)
 		print_more_errors(10, line_number);
-	printf("%c\n", char);
+	printf("%c\n", character);
 }
