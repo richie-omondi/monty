@@ -3,8 +3,8 @@
 /**
  * mod - computes the rest of the division of the second top element
  * of the stack by the top element of the stack.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * @stack: Pointer to a pointer pointing to the top node of the stack.
+ * @line_number: Integer representing the line number of the opcode.
  */
 void mod(stack_t **stack, unsigned int line_number)
 {
@@ -73,3 +73,28 @@ void print_string(stack_t **stack, unsigned int line_number)
 	printf("\n");
 }
 
+/**
+ * rotl - Rotates the first node of the stack to the bottom
+ * and the second top element of the stack becomes the first one.
+ * @stack: Double pointer pointing to the top node of the stack.
+ * @line_number: Integer representing the line number of the opcode.
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+
+	(void) line_number;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		return;
+
+	temp = *stack;
+	while (temp->next != NULL)
+		temp = temp->next;
+
+	temp->next = *stack;
+	(*stack)->prev = temp;
+	*stack = (*stack)->next;
+	(*stack)->prev->next = NULL;
+	(*stack)->prev = NULL;
+}
