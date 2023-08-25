@@ -55,7 +55,7 @@ void sub(stack_t **stack, unsigned int line_number)
 /**
  * div_nodes - Divides the second top element of the stack
  * by the top element of the stack.
- * @stack: Pointer to a pointer pointing to the top node of the stack.
+ * @stack: Double pointer pointing to the top node of the stack.
  * @line_number: Integer representing the line number of the opcode.
  */
 void div_nodes(stack_t **stack, unsigned int line_number)
@@ -77,7 +77,7 @@ void div_nodes(stack_t **stack, unsigned int line_number)
 /**
  * mul - Multiplies the second top element of the stack
  * with the top element of the stack.
- * @stack: Pointer to a pointer pointing to the top node of the stack.
+ * @stack: Double pointer pointing to the top node of the stack.
  * @line_number: Integer representing the line number of the opcode.
  */
 void mul(stack_t **stack, unsigned int line_number)
