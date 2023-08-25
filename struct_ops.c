@@ -133,6 +133,7 @@ void find_function(char *opcode, char *opcode_argument,
 		{"pchar", print_char},
 		{"pstr", print_string},
 		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 	};
 
